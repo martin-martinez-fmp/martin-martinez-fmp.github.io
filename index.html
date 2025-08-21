@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Martín Martinez — Economist</title>
+  <meta name="description" content="Ph.D. candidate in Economics. Research in macroeconomics and applied econometrics." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" />
+  <meta property="og:title" content="Martín Martinez — Economist" />
+  <meta property="og:description" content="Ph.D. candidate in Economics. Research in macroeconomics and applied econometrics." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="headshot.jpg" />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #0f172a; /* slate-900 */
+      --muted: #475569; /* slate-600 */
+      --primary: #0ea5e9; /* sky-500 */
+      --card: #f8fafc; /* slate-50 */
+      --border: #e2e8f0; /* slate-200 */
+      --link: #0369a1; /* sky-700 */
+    }
+    [data-theme="dark"]{
+      --bg: #0b1220;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --card: #0f172a;
+      --border: #1f2937;
+      --link: #7dd3fc;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #0b1220;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --primary: #38bdf8;
+        --card: #0f172a;
+        --border: #1f2937;
+        --link: #7dd3fc;
+      }
+      [data-theme="light"]{
+        --bg: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --primary: #0ea5e9;
+        --card: #f8fafc;
+        --border: #e2e8f0;
+        --link: #0369a1;
+      }
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.6; color:var(--text); background:var(--bg);
+    }
+    a{color:var(--link); text-decoration: none}
+    a:hover{text-decoration: underline}
+
+    /* Layout */
+    .container{max-width:1100px; margin:0 auto; padding:0 1rem}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px);
+      background:color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    nav{display:flex; align-items:center; justify-content:space-between; padding:0.6rem 0}
+    .brand{font-weight:700; letter-spacing:.2px}
+    .nav-links{display:flex; gap:1rem; align-items:center; flex-wrap:wrap}
+    .nav-links a{padding:.4rem .6rem; border-radius:.5rem}
+    .nav-links a:focus-visible, .nav-links button:focus-visible{outline:2px solid var(--primary); outline-offset:2px}
+
+    .theme-switch{display:flex; gap:.25rem; align-items:center; border:1px solid var(--border); border-radius:.7rem; padding:.25rem}
+    .theme-switch button{border:0; background:transparent; color:var(--muted); padding:.35rem .6rem; border-radius:.5rem; cursor:pointer}
+    .theme-switch button.active{background:var(--card); color:var(--text)}
+
+    /* Hero */
+    .hero{padding:4rem 0 3rem;}
+    .hero-grid{display:grid; grid-template-columns:220px 1fr; gap:2rem; align-items:center}
+    @media (max-width: 800px){
+      .hero-grid{grid-template-columns:1fr; text-align:center}
+    }
+    .avatar-wrap{display:flex; align-items:center; justify-content:center}
+    .avatar{
+      width:200px; height:200px; border-radius:50%; object-fit:cover; border:4px solid var(--border); box-shadow:0 4px 24px color-mix(in oklab, var(--text) 10%, transparent);
+    }
+    .hero h1{font-size:2.2rem; margin:.25rem 0}
+    .hero h2{font-size:1.15rem; font-weight:500; color:var(--muted); margin:.2rem 0 1rem}
+    .hero .actions{display:flex; gap:.75rem; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:.5rem; background:var(--text); color:var(--bg); border:1px solid var(--text); padding:.55rem .9rem; border-radius:.6rem; font-weight:600}
+    .btn.secondary{background:transparent; color:var(--text)}
+    .btn:hover{text-decoration:none; transform:translateY(-1px)}
+
+    /* Sections */
+    section{padding:2.5rem 0; border-top:1px solid var(--border)}
+    section h3{font-size:1.35rem; margin:.2rem 0 1.1rem}
+    .muted{color:var(--muted)}
+
+    /* Lists */
+    .item{padding:1rem; border:1px solid var(--border); border-radius:.8rem; background:var(--card)}
+    .grid{display:grid; gap:1rem}
+    .grid.two{grid-template-columns:1fr 1fr}
+    @media (max-width:900px){.grid.two{grid-template-columns:1fr}}
+
+    .paper-title{font-weight:600}
+    .meta{font-size:.95rem; color:var(--muted)}
+
+    /* Footer */
+    footer{padding:2rem 0; border-top:1px solid var(--border); font-size:.95rem}
+
+    /* Skip link */
+    .skip-link{position:absolute; left:-9999px}
+    .skip-link:focus{left:1rem; top:1rem; background:var(--card); color:var(--text); padding:.5rem .75rem; border-radius:.5rem; border:1px solid var(--border)}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <div class="brand"><a href="#home" class="brand" style="color:inherit">Martín Martinez</a></div>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#working-papers">Working Papers</a>
+          <a href="#publications">Publications</a>
+          <a href="#cv">CV</a>
+          <a href="#contact">Contact</a>
+          <div class="theme-switch" role="group" aria-label="Theme switcher">
+            <button id="theme-light" aria-pressed="false" title="Light">Light</button>
+            <button id="theme-dark" aria-pressed="false" title="Dark">Dark</button>
+            <button id="theme-auto" class="active" aria-pressed="true" title="Auto (system)">Auto</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="avatar-wrap">
+          <!-- Replace headshot.jpg with your own image file -->
+          <img src="headshot.jpg" alt="Portrait of Martín Martinez" class="avatar" />
+        </div>
+        <div>
+          <h1>Martín Martinez</h1>
+          <h2>Ph.D. Candidate in Economics · Boston University</h2>
+          <p class="muted">My research interests include macroeconomics, applied econometrics, and policy evaluation. I am particularly interested in how fiscal composition and regulation shape technology adoption and labor markets.</p>
+          <div class="actions">
+            <a class="btn" href="#contact" aria-label="Email Martín Martinez">Contact me</a>
+            <a class="btn secondary" href="cv.pdf" download>Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Working Papers -->
+    <section id="working-papers" aria-labelledby="wp-title">
+      <div class="container">
+        <h3 id="wp-title">Working Papers <span class="muted" style="font-weight:400">(feedback welcome)</span></h3>
+        <div class="grid two">
+          <article class="item">
+            <div class="paper-title">Public Investment vs. Government Consumption: Transmission to Labor Markets</div>
+            <div class="meta">Draft · 2025 · with <em>Coauthor(s)</em></div>
+            <p>Explores how the composition of government spending affects monetary policy effectiveness and technology adoption by firms.</p>
+            <p><a href="#">PDF</a> · <a href="#">Slides</a> · <a href="#">Appendix</a></p>
+          </article>
+          <article class="item">
+            <div class="paper-title">Regulation, Misallocation, and Technology Adoption</div>
+            <div class="meta">Working draft · 2025</div>
+            <p>Quantifies the impact of regulatory frictions on firm investment and the diffusion of modern technologies in emerging economies.</p>
+            <p><a href="#">PDF</a> · <a href="#">Code</a></p>
+          </article>
+          <article class="item">
+            <div class="paper-title">Government Spending Rigidities and Business Cycle Dynamics</div>
+            <div class="meta">In progress</div>
+            <p>A DSGE framework with government spending adjustment costs and sectoral heterogeneity to study cyclical multipliers.</p>
+            <p><a href="#">Abstract</a></p>
+          </article>
+          <article class="item">
+            <div class="paper-title">Nowcasting with Structural Priors</div>
+            <div class="meta">In progress</div>
+            <p>Combines Bayesian dynamic factors with prior information from national accounts to improve real-time tracking of GDP.</p>
+            <p><a href="#">Abstract</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" aria-labelledby="pubs-title">
+      <div class="container">
+        <h3 id="pubs-title">Publications</h3>
+        <div class="grid">
+          <article class="item">
+            <div class="paper-title">Title of Paper One</div>
+            <div class="meta">Journal · Year · with Coauthors</div>
+            <p>Short one-line summary of the contribution and methods.</p>
+            <p><a href="#">PDF</a> · <a href="#">Code</a></p>
+          </article>
+          <article class="item">
+            <div class="paper-title">Title of Paper Two</div>
+            <div class="meta">Journal · Year</div>
+            <p>Short one-line summary of the contribution and methods.</p>
+            <p><a href="#">PDF</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" aria-labelledby="cv-title">
+      <div class="container">
+        <h3 id="cv-title">CV</h3>
+        <div class="item">
+          <p>Download the latest version of my curriculum vitae here.</p>
+          <p><a class="btn" href="cv.pdf" download>Download CV (PDF)</a></p>
+          <p class="muted">Tip: replace <code>cv.pdf</code> in the site folder with your actual file.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h3 id="contact-title">Contact</h3>
+        <div class="item">
+          <p><strong>Email:</strong> <a href="mailto:martin22@bu.edu">martin22@bu.edu</a></p>
+          <p><strong>Office:</strong> (Add your office/location)</p>
+          <p><strong>Links:</strong> <a href="https://www.linkedin.com/in/mm-martin-martinez" target="_blank" rel="noopener">LinkedIn</a> · <a href="#" target="_blank" rel="noopener">Google Scholar</a> · <a href="#" target="_blank" rel="noopener">GitHub</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap">
+        <div>© <span id="year"></span> Martín Martinez</div>
+        <div class="muted">Built with plain HTML/CSS. Theme supports Light / Dark / Auto.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme switcher with localStorage
+    const root = document.documentElement;
+    const btnLight = document.getElementById('theme-light');
+    const btnDark = document.getElementById('theme-dark');
+    const btnAuto = document.getElementById('theme-auto');
+
+    function setActive(btn){
+      [btnLight, btnDark, btnAuto].forEach(b=>{b.classList.remove('active'); b.setAttribute('aria-pressed','false')});
+      btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
+    }
+
+    function applyTheme(mode){
+      if(mode === 'light'){ root.setAttribute('data-theme','light'); }
+      else if(mode === 'dark'){ root.setAttribute('data-theme','dark'); }
+      else { root.removeAttribute('data-theme'); }
+    }
+
+    const saved = localStorage.getItem('theme-mode');
+    if(saved){
+      applyTheme(saved);
+      setActive(saved==='light'?btnLight: saved==='dark'?btnDark: btnAuto);
+    }
+
+    btnLight.addEventListener('click', ()=>{applyTheme('light'); localStorage.setItem('theme-mode','light'); setActive(btnLight)});
+    btnDark.addEventListener('click', ()=>{applyTheme('dark'); localStorage.setItem('theme-mode','dark'); setActive(btnDark)});
+    btnAuto.addEventListener('click', ()=>{applyTheme('auto'); localStorage.setItem('theme-mode','auto'); setActive(btnAuto)});
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Martín Martinez",
+    "jobTitle": "Ph.D. Candidate in Economics",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Boston University"
+    },
+    "email": "mailto:martin22@bu.edu",
+    "sameAs": [
+      "https://www.linkedin.com/in/mm-martin-martinez"
+    ]
+  }
+  </script>
+</body>
+</html>
