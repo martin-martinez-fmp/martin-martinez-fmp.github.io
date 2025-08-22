@@ -113,6 +113,9 @@
     @media (max-width:900px){.grid.two{grid-template-columns:1fr}}
 
     .paper-title{font-weight:600}
+    .paper-title a{color:inherit; text-decoration:none; transition:color .15s ease}
+    .paper-title a:hover, .paper-title a:focus-visible{color:var(--link); text-decoration:underline}
+    .paper-title a:active{color:var(--primary)}
     .meta{font-size:.95rem; color:var(--muted)}
     .r-item{padding:1rem; border:1px solid var(--border); border-radius:.8rem; background:var(--card)}
 
@@ -126,6 +129,15 @@
     .t-dates{color:var(--muted); font-size:.95rem}
     .t-desc{color:var(--muted)}
     .t-desc-list{color:var(--muted); list-style:disc; margin:.4rem 0 0 1.2rem}
+
+    /* Contact icons */
+    .contact-list{list-style:none; margin:0; padding:0; display:grid; gap:.7rem}
+    .contact-item{display:flex; align-items:center; gap:.6rem}
+    .contact-item .icon{width:22px; height:22px; color:var(--muted)}
+    .contact-item .icon svg{width:100%; height:100%; display:block}
+    .icon-outline svg{stroke:currentColor; stroke-width:1.8; fill:none}
+    .icon-solid svg{fill:currentColor}
+    .contact-item .icon.linkedin{color:var(--link)}
 
     /* Footer */
     footer{padding:2rem 0; border-top:1px solid var(--border); font-size:.95rem}
@@ -188,9 +200,9 @@
         <h4 style="margin-top:1rem">Publications</h4>
         <div class="grid">
           <article class="r-item">
-            <div class="paper-title">Real Dollarization and Monetary Policy in Peru.</div>
+            <div class="paper-title"><a href="https://www.bcrp.gob.pe/docs/Publicaciones/Revista-Estudios-Economicos/33/ree-33-contreras-quispe-regalado-martinez.pdf" target="_blank" rel="noopener">Real Dollarization and Monetary Policy in Peru.</a></div>
             <div class="meta">with A. Contreras, Z. Quispe, and F. Regalado. Revista de Estudios Económicos (2017).</div>
-            <p><a href="https://www.bcrp.gob.pe/docs/Publicaciones/Revista-Estudios-Economicos/33/ree-33-contreras-quispe-regalado-martinez.pdf" target="_blank" rel="noopener">PDF</a></p>
+            
           </article>
         </div>
 
@@ -201,9 +213,9 @@
             <div class="meta">with A. Contreras, F. Regalado, and K. Vasquez. Peruvian Economic Association (2017).</div>
           </article>
           <article class="r-item">
-            <div class="paper-title">Linking historical GDP series by the expenditure approach and by economic sectors, 2007 base.</div>
+            <div class="paper-title"><a href="https://www.bcrp.gob.pe/docs/Publicaciones/Documentos-de-Trabajo/2014/documento-de-trabajo-19-2014.pdf" target="_blank" rel="noopener">Linking historical GDP series by the expenditure approach and by economic sectors, 2007 base.</a></div>
             <div class="meta">with J. Gutiérrez, R. Quineche, and C. Virreira. Banco Central de Reserva del Perú (2014).</div>
-            <p><a href="https://www.bcrp.gob.pe/docs/Publicaciones/Documentos-de-Trabajo/2014/documento-de-trabajo-19-2014.pdf" target="_blank" rel="noopener">PDF</a></p>
+            
           </article>
         </div>
 
@@ -275,9 +287,33 @@
       <div class="container">
         <h3 id="contact-title">Contact</h3>
         <div class="item">
-          <p><strong>Email:</strong> <a href="mailto:martin22@bu.edu">martin22@bu.edu</a></p>
-          <p><strong>Office:</strong> <a href="https://maps.google.com/?q=270+Bay+State+Road+%23445,+Boston,+MA+02215" target="_blank" rel="noopener">270 Bay State Road #445</a> - B94</p>
-          <p><strong>Links:</strong> <a href="https://www.linkedin.com/in/mm-martin-martinez" target="_blank" rel="noopener">LinkedIn</a></p>
+          <ul class="contact-list">
+            <!-- Email -->
+            <li class="contact-item">
+              <span class="icon icon-outline" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M22 8l-9.2 5.75a2 2 0 0 1-2.1 0L1.5 8"/></svg>
+              </span>
+              <a href="mailto:martin22@bu.edu">martin22@bu.edu</a>
+            </li>
+            <!-- Address (two lines) -->
+            <li class="contact-item">
+              <span class="icon icon-outline" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M12 21s7-6.2 7-11.2A7 7 0 0 0 5 9.8C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.5"/></svg>
+              </span>
+              <span>
+                <a href="https://maps.google.com/?q=270+Bay+State+Road+%23445,+Office+B94,+Boston,+MA+02215" target="_blank" rel="noopener">270 Bay State Road #445, Office B94<br>Boston, MA 02215</a>
+              </span>
+            </li>
+            <!-- LinkedIn (same solid icon as in hero) -->
+            <li class="contact-item">
+              <span class="icon icon-solid linkedin" aria-hidden="true">
+                <svg role="img" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="currentColor" d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.454C23.205 24 24 23.226 24 22.271V1.729C24 .774 23.205 0 22.225 0zM7.059 20.452H3.558V9h3.501v11.452zM5.308 7.433h-.023c-1.175 0-1.936-.81-1.936-1.824 0-1.035.782-1.824 1.98-1.824 1.199 0 1.936.789 1.959 1.824 0 1.014-.76 1.824-1.98 1.824zM20.447 20.452h-3.501v-5.969c0-1.5-.536-2.523-1.875-2.523-1.024 0-1.634.688-1.902 1.352-.098.238-.122.57-.122.904v6.236H9.546s.047-10.122 0-11.452h3.501v1.622c.465-.718 1.294-1.739 3.146-1.739 2.298 0 4.254 1.503 4.254 4.733v6.836z"/>
+                </svg>
+              </span>
+              <a href="https://www.linkedin.com/in/mm-martin-martinez" target="_blank" rel="noopener">LinkedIn</a>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
