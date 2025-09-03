@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Martín Martínez — Economist</title>
+  <meta name="description" content="Ph.D. candidate in Economics. Research in macroeconomics and applied econometrics." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" />
+  <meta property="og:title" content="Martín Martínez — Economist" />
+  <meta property="og:description" content="Ph.D. candidate in Economics. Research in macroeconomics and applied econometrics." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="headshot.jpg" />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #0f172a; /* slate-900 */
+      --muted: #475569; /* slate-600 */
+      --primary: #0ea5e9; /* sky-500 */
+      --card: #f8fafc; /* slate-50 */
+      --border: #e2e8f0; /* slate-200 */
+      --link: #0369a1; /* sky-700 */
+    }
+    [data-theme="dark"]{
+      --bg: #0b1220;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --card: #0f172a;
+      --border: #1f2937;
+      --link: #7dd3fc;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #0b1220;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --primary: #38bdf8;
+        --card: #0f172a;
+        --border: #1f2937;
+        --link: #7dd3fc;
+      }
+      [data-theme="light"]{
+        --bg: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --primary: #0ea5e9;
+        --card: #f8fafc;
+        --border: #e2e8f0;
+        --link: #0369a1;
+      }
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.6; color:var(--text); background:var(--bg);
+    }
+    a{color:var(--link); text-decoration: none}
+    a:hover{text-decoration: underline}
+
+    /* Layout */
+    .container{max-width:1100px; margin:0 auto; padding:0 1rem}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px);
+      background:color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    nav{display:flex; align-items:center; justify-content:space-between; padding:0.6rem 0}
+    .brand{font-weight:700; letter-spacing:.2px}
+    .nav-links{display:flex; gap:1rem; align-items:center; flex-wrap:wrap}
+    .nav-links a{padding:.4rem .6rem; border-radius:.5rem}
+    .nav-links a:focus-visible, .nav-links button:focus-visible{outline:2px solid var(--primary); outline-offset:2px}
+
+    .theme-switch{display:flex; gap:.25rem; align-items:center; border:1px solid var(--border); border-radius:.7rem; padding:.25rem}
+    .theme-switch button{border:0; background:transparent; color:var(--muted); padding:.35rem .6rem; border-radius:.5rem; cursor:pointer}
+    .theme-switch button.active{background:var(--card); color:var(--text)}
+
+    /* Language switch */
+    .lang-switch{display:flex; gap:.25rem; align-items:center; border:1px solid var(--border); border-radius:.7rem; padding:.25rem}
+    .lang-switch button{border:0; background:transparent; color:var(--muted); padding:.35rem .6rem; border-radius:.5rem; cursor:pointer}
+    .lang-switch button.active{background:var(--card); color:var(--text)}
+
+    /* Hero */
+    .hero{padding:4rem 0 3rem;}
+    .hero-grid{display:grid; grid-template-columns:220px 1fr; gap:2rem; align-items:center}
+    @media (max-width: 800px){
+      .hero-grid{grid-template-columns:1fr; text-align:center}
+    }
+    .avatar-wrap{display:flex; align-items:center; justify-content:center; flex-direction:column}
+    .avatar{
+      width:200px; height:200px; border-radius:50%; object-fit:cover; border:4px solid var(--border); box-shadow:0 4px 24px color-mix(in oklab, var(--text) 10%, transparent);
+    }
+    .hero h1{font-size:1.8rem; margin:.25rem 0}
+    .hero h2{font-size:1.15rem; font-weight:500; color:var(--muted); margin:.2rem 0 1rem}
+    .hero .actions{display:flex; gap:1.75rem; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:.5rem; background:var(--text); color:var(--bg); border:1px solid var(--text); padding:.55rem .9rem; border-radius:.6rem; font-weight:600}
+    .btn.secondary{background:transparent; color:var(--text)}
+    .btn:hover{text-decoration:none; transform:translateY(-1px)}
+
+    /* Link-style button (blue text, no box) */
+    .btn.link{background:transparent; color:var(--link); border:0; padding:0; box-shadow:none}
+    .btn.link:hover, .btn.link:focus-visible{ text-decoration: underline; transform:none }
+
+    /* Dark blue primary button */
+    .btn.primary{background:#6b7280; border-color:#6b7280; color:#fff}
+    .btn.primary:hover{filter:brightness(1.05)}
+
+    /* Circular blue CV badge */
+    .btn.circle{width:36px;height:36px;border-radius:9999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:2px solid #0a66c2;color:#0a66c2;padding:0;font-weight:700;letter-spacing:.02em}
+    .btn.circle:hover{filter:brightness(1.05)}
+
+    /* Remove any external-link arrow after mailto */
+    a[href^="mailto:"]::after{content:none !important}
+
+    /* LinkedIn circular badge */
+    .icon-link.linkedin{width:36px;height:36px;border-radius:9999px;background:#0a66c2;color:#fff;padding:6px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+    .icon-link.linkedin .lbl{color:#fff;font-weight:800;font-size:16px;line-height:1;letter-spacing:-0.02em}
+
+    /* Social icon next to CV */
+    .icon-link{display:inline-flex; align-items:center; justify-content:center; padding:0; border:0; background:transparent; border-radius:0; color:var(--link); width:auto; height:auto}
+    .icon-link svg{width:22px; height:22px; display:block}
+    .icon-link:hover{transform:translateY(-1px)}
+
+    /* Quick contact badges under hero */
+    .quick-contact{margin-top:1.1rem}
+    .quick-icons{display:flex; gap:1rem; align-items:center; justify-content:center}
+    .hero-contacts .quick-icons{justify-content:flex-start; margin-top:.25rem}
+    .ci{width:40px; height:40px; border-radius:9999px; display:inline-flex; align-items:center; justify-content:center; background:rgba(107,114,128,.18); color:rgba(71,85,105,.9); border:1px solid rgba(71,85,105,.25); text-decoration:none; transition:transform .15s ease, background-color .15s ease}  
+    .ci:hover{transform:scale(1.08); background:rgba(107,114,128,.28)}
+    .avatar-wrap .quick-lines{text-align:center}
+    .ci svg{width:22px; height:22px; display:block}
+    .quick-lines{margin-top:1rem}
+    .quick-lines .label{font-weight:600}
+    .quick-lines .mutedline{color:var(--muted); margin-top:.6rem}
+    .quick-lines .name-hero{font-weight:700;font-size:1.1rem;margin-top:.6rem;margin-bottom:.1rem}
+    .quick-lines .role-hero{color:var(--muted);margin-top:.05rem}
+    .hero-contacts{margin-top:1rem}
+    .hero-contacts .contact-label{font-weight:600;margin:.5rem 0 .5rem}
+
+    /* Sections */
+    section{padding:2.5rem 0; border-top:1px solid var(--border)}
+    section h3{font-size:1.35rem; margin:.2rem 0 1.1rem}
+    .muted{color:var(--muted)}
+
+    /* Lists */
+    .item{padding:1rem; border:1px solid var(--border); border-radius:.8rem; background:var(--card)}
+    /* CV section: no card box */
+    #cv .item{padding:0;border:0;background:transparent}
+    .grid{display:grid; gap:1rem}
+    .grid.two{grid-template-columns:1fr 1fr}
+    @media (max-width:900px){.grid.two{grid-template-columns:1fr}}
+
+    .paper-title{font-weight:600}
+    .paper-title a{color:inherit; text-decoration:none; transition:color .15s ease}
+    .paper-title a:hover, .paper-title a:focus-visible{color:var(--link); text-decoration:underline}
+    .paper-title a:active{color:var(--primary)}
+    .meta{font-size:.95rem; color:var(--muted)}
+    .r-item{padding:1rem; border:1px solid var(--border); border-radius:.8rem; background:var(--card)}
+
+    /* Experience timeline */
+    .timeline{display:grid; gap:1rem}
+    .t-item{position:relative; padding:0 0 1rem 1.5rem; border-left:2px solid var(--border)}
+    .t-item:last-child{padding-bottom:0}
+    .t-item::before{content:""; position:absolute; left:-16px; top:.25rem; width:18px; height:18px; color:var(--primary); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2" ry="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>'); background-size:contain; background-repeat:no-repeat; background-position:center;}
+    .t-role{font-weight:600}
+    .t-org{color:var(--muted)}
+    .t-dates{color:var(--muted); font-size:.95rem}
+    .t-desc{color:var(--muted)}
+    .t-desc-list{color:var(--muted); list-style:disc; margin:.4rem 0 0 1.2rem}
+
+    /* Contact icons */
+    .contact-list{list-style:none; margin:0; padding:0; display:grid; gap:.7rem}
+    .contact-item{display:flex; align-items:center; gap:.6rem}
+    .contact-item .icon{width:22px; height:22px; color:var(--muted)}
+    .contact-item .icon svg{width:100%; height:100%; display:block}
+    /* LinkedIn round badge for Contact section */
+    .li-badge{width:22px;height:22px;border-radius:9999px;background:#0a66c2;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;line-height:1;letter-spacing:-0.02em}
+    .icon-outline svg{stroke:currentColor; stroke-width:1.8; fill:none}
+    .icon-solid svg{fill:currentColor}
+    .contact-item .icon.linkedin{color:var(--muted)}
+
+    /* Footer */
+    footer{padding:2rem 0; border-top:1px solid var(--border); font-size:.95rem}
+
+    /* Skip link */
+    .skip-link{position:absolute; left:-9999px}
+    .skip-link:focus{left:1rem; top:1rem; background:var(--card); color:var(--text); padding:.5rem .75rem; border-radius:.5rem; border:1px solid var(--border)}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <div class="brand"><a href="#home" class="brand" style="color:inherit">Martín Martínez</a></div>
+        <div class="nav-links">
+          <a href="#home" data-i18n="nav.home">Home</a>
+          <a href="#research" data-i18n="nav.research">Research</a>
+          <a href="#cv" data-i18n="nav.cv">CV</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+          <div class="theme-switch" role="group" aria-label="Theme switcher">
+            <button id="theme-light" aria-pressed="false" title="Light">Light</button>
+            <button id="theme-dark" aria-pressed="false" title="Dark">Dark</button>
+            <button id="theme-auto" class="active" aria-pressed="true" title="Auto (system)">Auto</button>
+          </div>
+          <div class="lang-switch" role="group" aria-label="Language switcher">
+            <button id="lang-en" class="active" aria-pressed="true" title="English">EN</button>
+            <button id="lang-es" aria-pressed="false" title="Español">ES</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="avatar-wrap">
+          <!-- Replace headshot.jpg with your own image file -->
+          <img src="headshot.jpg" alt="Portrait of Martín Martínez" class="avatar" />
+          <!-- Quick contact under photo -->
+          <div class="quick-contact">
+            
+            <div class="quick-lines">
+              <div class="name-hero">Martín Martínez</div>
+              <div class="role-hero" data-i18n="hero.role">Ph.D. Candidate</div>
+              <div class="mutedline"><a href="https://www.bu.edu/econ/" target="_blank" rel="noopener">Boston University</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-text">
+          <h1 data-i18n="hero.welcome">Welcome!</h1>
+          <p class="muted" data-i18n="hero.blurb">I am a Ph.D. candidate in Economics at Boston University, with research interests in macroeconomics and applied econometrics. I bring a strong background in central banking and have a solid command of data-driven tools and quantitative methods. My areas of expertise include economic forecasting, nowcasting, and econometric modeling.</p>
+          <div class="hero-contacts">
+            <div class="contact-label"><span data-i18n="hero.contactLabel">Contact:</span> <a href="mailto:martin22@bu.edu">martin22@bu.edu</a></div>
+            <div class="quick-icons">
+              <a class="ci" href="https://www.linkedin.com/in/mm-martin-martinez" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg role="img" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                  <path d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.454C23.205 24 24 23.226 24 22.271V1.729C24 .774 23.205 0 22.225 0zM7.059 20.452H3.558V9h3.501v11.452zM5.308 7.433h-.023c-1.175 0-1.936-.81-1.936-1.824 0-1.035.782-1.824 1.98-1.824 1.199 0 1.936.789 1.959 1.824 0 1.014-.76 1.824-1.98 1.824zM20.447 20.452h-3.501v-5.969c0-1.5-.536-2.523-1.875-2.523-1.024 0-1.634.688-1.902 1.352-.098.238-.122.57-.122.904v6.236H9.546s.047-10.122 0-11.452h3.501v1.622c.465-.718 1.294-1.739 3.146-1.739 2.298 0 4.254 1.503 4.254 4.733v6.836z"/>
+                </svg>
+              </a>
+              <a class="ci" href="mailto:martin22@bu.edu" aria-label="Email">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2"/>
+                  <path d="M3 7l9 6 9-6"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research" aria-labelledby="research-title">
+      <div class="container">
+        <h3 id="research-title" data-i18n="research.title">Research</h3>
+
+        <h4 style="margin-top:1rem" data-i18n="research.publications">Publications</h4>
+        <div class="grid">
+          <article class="r-item">
+            <div class="paper-title" data-i18n="paper.pub1"><a href="https://www.bcrp.gob.pe/docs/Publicaciones/Revista-Estudios-Economicos/33/ree-33-contreras-quispe-regalado-martinez.pdf" target="_blank" rel="noopener">Real Dollarization and Monetary Policy in Peru.</a></div>
+            <div class="meta">with A. Contreras, Z. Quispe, and F. Regalado. Revista de Estudios Económicos (2017).</div>
+            
+          </article>
+        </div>
+
+        <h4 style="margin-top:2rem" data-i18n="research.working">Working Papers</h4>
+        <div class="grid">
+          <article class="r-item">
+            <div class="paper-title" data-i18n="paper.wp1">The impact of El Niño phenomenon in Peru.</div>
+            <div class="meta">with A. Contreras, F. Regalado, and K. Vasquez. Peruvian Economic Association (2017).</div>
+          </article>
+          <article class="r-item">
+            <div class="paper-title" data-i18n="paper.wp2"><a href="https://www.bcrp.gob.pe/docs/Publicaciones/Documentos-de-Trabajo/2014/documento-de-trabajo-19-2014.pdf" target="_blank" rel="noopener">Linking historical GDP series by the expenditure approach and by economic sectors, 2007 base.</a></div>
+            <div class="meta">with J. Gutiérrez, R. Quineche, and C. Virreira. Banco Central de Reserva del Perú (2014).</div>
+            
+          </article>
+        </div>
+
+        <h4 style="margin-top:2rem" data-i18n="research.wip">Work in Progress</h4>
+        <div class="grid">
+          <article class="r-item">
+            <div class="paper-title">Breaking (Down) News: Using News Data for Economic Forecasting in Peru.</div>
+            <div class="meta">with G. Palacios and M. Saldarriaga.</div>
+          </article>
+          <article class="r-item">
+            <div class="paper-title">Dynamic Labor Supply.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" aria-labelledby="exp-title">
+      <div class="container">
+        <h3 id="exp-title" data-i18n="experience.title">Experience</h3>
+        <div class="timeline">
+          <article class="t-item">
+            <div class="t-role">Head, Division of Economic Activity Indicators</div>
+            <div class="t-org"><a href="https://www.bcrp.gob.pe/en/" target="_blank" rel="noopener">Central Bank of Peru</a></div>
+            <div class="t-dates">Sep 2019 – Aug 2021</div>
+            <ul class="t-desc-list">
+              <li>Led monthly macroeconomic surveys and GDP nowcasting using high‑frequency indicators.</li>
+              <li>Developed forecasting models for production, expenditure, and national accounts statistics.</li>
+            </ul>
+          </article>
+          <article class="t-item">
+            <div class="t-role">Senior Analyst, Macroeconomic Models Division</div>
+            <div class="t-org"><a href="https://www.bcrp.gob.pe/en/" target="_blank" rel="noopener">Central Bank of Peru</a></div>
+            <div class="t-dates">Aug 2018 – Aug 2019</div>
+            <ul class="t-desc-list">
+              <li>Conducted Bayesian estimation and impulse‑response analysis.</li>
+              <li>Built frameworks for short‑run inflation forecasting.</li>
+              <li>Developed trend‑cycle decompositions and DSGE models for policy analysis.</li>
+            </ul>
+          </article>
+          <article class="t-item">
+            <div class="t-role">Analyst, Division of Economic Activity Indicators</div>
+            <div class="t-org"><a href="https://www.bcrp.gob.pe/en/" target="_blank" rel="noopener">Central Bank of Peru</a></div>
+            <div class="t-dates">May 2014 – Jul 2017</div>
+            <ul class="t-desc-list">
+              <li>Led the 2007‑base GDP rebasing.</li>
+              <li>Compiled national accounts data.</li>
+              <li>Executed monthly macroeconomic surveys informing central‑bank decisions.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" aria-labelledby="cv-title">
+      <div class="container">
+        <h3 id="cv-title" data-i18n="cv.title">CV</h3>
+        <div class="item">
+          <p data-i18n="cv.text">Download the latest version of my curriculum vitae here.</p>
+          <p><a class="btn primary" href="cv.pdf" download data-i18n="cv.button">Download CV</a></p>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h3 id="contact-title" data-i18n="contact.title">Contact</h3>
+        <div class="item">
+          <ul class="contact-list">
+            <!-- Email -->
+            <li class="contact-item">
+              <span class="icon icon-outline" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M22 8l-9.2 5.75a2 2 0 0 1-2.1 0L1.5 8"/></svg>
+              </span>
+              <a href="mailto:martin22@bu.edu">martin22@bu.edu</a>
+            </li>
+            <!-- Address (two lines) -->
+            <li class="contact-item">
+              <span class="icon icon-outline" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M12 21s7-6.2 7-11.2A7 7 0 0 0 5 9.8C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.5"/></svg>
+              </span>
+              <span>
+                <a href="https://maps.google.com/?q=270+Bay+State+Road+%23445,+Office+B94,+Boston,+MA+02215" target="_blank" rel="noopener">270 Bay State Road #445, Office B94<br>Boston, MA 02215</a>
+              </span>
+            </li>
+            <!-- LinkedIn (same solid icon as in hero) -->
+            <li class="contact-item">
+              <span class="icon icon-solid linkedin" aria-hidden="true">
+                <svg role="img" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="currentColor" d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.454C23.205 24 24 23.226 24 22.271V1.729C24 .774 23.205 0 22.225 0zM7.059 20.452H3.558V9h3.501v11.452zM5.308 7.433h-.023c-1.175 0-1.936-.81-1.936-1.824 0-1.035.782-1.824 1.98-1.824 1.199 0 1.936.789 1.959 1.824 0 1.014-.76 1.824-1.98 1.824zM20.447 20.452h-3.501v-5.969c0-1.5-.536-2.523-1.875-2.523-1.024 0-1.634.688-1.902 1.352-.098.238-.122.57-.122.904v6.236H9.546s.047-10.122 0-11.452h3.501v1.622c.465-.718 1.294-1.739 3.146-1.739 2.298 0 4.254 1.503 4.254 4.733v6.836z"/>
+                </svg>
+              </span>
+              <a href="https://www.linkedin.com/in/mm-martin-martinez" target="_blank" rel="noopener">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap">
+        <div>© <span id="year"></span> Martín Martínez</div>
+        <div class="muted" data-i18n="footer.built">Built with plain HTML/CSS.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme switcher with localStorage
+    const root = document.documentElement;
+    const btnLight = document.getElementById('theme-light');
+    const btnDark = document.getElementById('theme-dark');
+    const btnAuto = document.getElementById('theme-auto');
+
+    function setActive(btn){
+      [btnLight, btnDark, btnAuto].forEach(b=>{b.classList.remove('active'); b.setAttribute('aria-pressed','false')});
+      btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
+    }
+
+    function applyTheme(mode){
+      if(mode === 'light'){ root.setAttribute('data-theme','light'); }
+      else if(mode === 'dark'){ root.setAttribute('data-theme','dark'); }
+      else { root.removeAttribute('data-theme'); }
+    }
+
+    const saved = localStorage.getItem('theme-mode');
+    if(saved){
+      applyTheme(saved);
+      setActive(saved==='light'?btnLight: saved==='dark'?btnDark: btnAuto);
+    }
+
+    btnLight.addEventListener('click', ()=>{applyTheme('light'); localStorage.setItem('theme-mode','light'); setActive(btnLight)});
+    btnDark.addEventListener('click', ()=>{applyTheme('dark'); localStorage.setItem('theme-mode','dark'); setActive(btnDark)});
+    btnAuto.addEventListener('click', ()=>{applyTheme('auto'); localStorage.setItem('theme-mode','auto'); setActive(btnAuto)});
+  </script>
+
+  <script>
+    // === Language i18n ===
+    const i18n = {
+      en: {
+        'nav.home':'Home','nav.research':'Research','nav.cv':'CV','nav.contact':'Contact',
+        'hero.welcome':'Welcome!','hero.blurb':'I am a Ph.D. candidate in Economics at Boston University, with research interests in macroeconomics and applied econometrics. I bring a strong background in central banking and have a solid command of data-driven tools and quantitative methods. My areas of expertise include economic forecasting, nowcasting, and econometric modeling.','hero.role':'Ph.D. Candidate','hero.contactLabel':'Contact:',
+        'research.title':'Research','research.publications':'Publications','research.working':'Working Papers','research.wip':'Work in Progress',
+        'experience.title':'Experience',
+        'cv.title':'CV','cv.text':'Download the latest version of my curriculum vitae here.','cv.button':'Download CV',
+        'contact.title':'Contact',
+        'footer.built':'Built with plain HTML/CSS.',
+        'paper.pub1':'<a href="https://www.bcrp.gob.pe/docs/Publicaciones/Revista-Estudios-Economicos/33/ree-33-contreras-quispe-regalado-martinez.pdf" target="_blank" rel="noopener">Real Dollarization in Peru.</a>',
+        'paper.wp1':'The Impact of the El Niño Phenomenon on the Peruvian Economy.',
+        'paper.wp2':'<a href="https://www.bcrp.gob.pe/docs/Publicaciones/Documentos-de-Trabajo/2014/documento-de-trabajo-19-2014.pdf" target="_blank" rel="noopener">Linking historical GDP series by the expenditure approach and by economic sectors, 2007 base.</a>'
+      },
+      es: {
+        'nav.home':'Inicio','nav.research':'Investigación','nav.cv':'CV','nav.contact':'Contacto',
+        'hero.welcome':'¡Bienvenido!','hero.blurb':'Soy candidato a Ph.D. en Economía en Boston University, con intereses de investigación en macroeconomía y econometría aplicada. Tengo experiencia en banca central y un sólido manejo de herramientas cuantitativas y de datos. Mis áreas de especialización incluyen pronóstico económico, nowcasting y modelado econométrico.','hero.role':'Candidato a Ph.D.','hero.contactLabel':'Contacto:',
+        'research.title':'Investigación','research.publications':'Publicaciones','research.working':'Documentos de trabajo','research.wip':'En progreso',
+        'experience.title':'Experiencia',
+        'cv.title':'CV','cv.text':'Descarga aquí la última versión de mi currículum.','cv.button':'Descargar CV',
+        'contact.title':'Contacto',
+        'footer.built':'Hecho con HTML/CSS puro.',
+        'paper.pub1':'<a href="https://www.bcrp.gob.pe/docs/Publicaciones/Revista-Estudios-Economicos/33/ree-33-contreras-quispe-regalado-martinez.pdf" target="_blank" rel="noopener">Dolarización real en el Perú.</a>',
+        'paper.wp1':'<a href="https://perueconomics.org/wp-content/uploads/2014/01/WP-97.pdf" target="_blank" rel="noopener">Impacto del Fenómeno de El Niño a la Economía Peruana</a>',
+        'paper.wp2':'<a href="https://www.bcrp.gob.pe/docs/Publicaciones/Documentos-de-Trabajo/2014/documento-de-trabajo-19-2014.pdf" target="_blank" rel="noopener">Empalme de series históricas anuales y trimestrales del PBI por el lado del gasto y de los sectores económicos, base 2007.</a>'
+      }
+    };
+
+    const btnLangEn = document.getElementById('lang-en');
+    const btnLangEs = document.getElementById('lang-es');
+
+    function setLangActive(lang){
+      [btnLangEn, btnLangEs].forEach(b=>{b.classList.remove('active'); b.setAttribute('aria-pressed','false')});
+      const btn = (lang==='es'?btnLangEs:btnLangEn);
+      if(btn){ btn.classList.add('active'); btn.setAttribute('aria-pressed','true'); }
+    }
+
+    function applyLang(lang){
+      const dict = i18n[lang] || i18n.en;
+      document.documentElement.lang = (lang==='es'?'es':'en');
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        if(dict[key] !== undefined){ el.innerHTML = dict[key]; }
+      });
+      localStorage.setItem('lang', lang);
+      setLangActive(lang);
+    }
+
+    const savedLang = localStorage.getItem('lang') || 'en';
+    applyLang(savedLang);
+    if(btnLangEn) btnLangEn.addEventListener('click', ()=>applyLang('en'));
+    if(btnLangEs) btnLangEs.addEventListener('click', ()=>applyLang('es'));
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Martín Martínez",
+    "jobTitle": "Ph.D. Candidate in Economics",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Boston University"
+    },
+    "email": "mailto:martin22@bu.edu",
+    "sameAs": [
+      "https://www.linkedin.com/in/mm-martin-martinez"
+    ]
+  }
+  </script>
+</body>
+</html>
